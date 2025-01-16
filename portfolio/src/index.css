@@ -15,6 +15,3 @@ body{
 .animate-bounce{
     animation: bounce 3s ;
 }
-
-/* @media (max-width: 600px) {
-    . */
