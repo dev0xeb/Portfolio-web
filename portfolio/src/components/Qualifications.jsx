@@ -26,7 +26,7 @@ const Qualifications = () => {
                     <div className='border-l-4 border-blue-900 pl-4 rounded-lg mt-6'>
                         <p className='font-bold text-[17px]'>Bachelor of Arts (B.A)</p>
                         <p className='font-semibold'>Osun State University</p>
-                        <p className='font-light text-[14px]'><FontAwesomeIcon icon={faCalendarDays} style = {{color: 'blue'}} className='mr-3'/>2018 - 2023</p>
+                        <p className='font-light text-[14px]'><FontAwesomeIcon icon={faCalendarDays} style = {{color: 'blue'}} className='mr-3'/>2018 - 2022</p>
                     </div>
                 </div>
             </div>

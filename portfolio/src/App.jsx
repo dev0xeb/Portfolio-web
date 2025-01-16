@@ -6,18 +6,20 @@ import Skills from './components/Skills'
 import Qualifications from './components/Qualifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { BrowserRouter } from 'react-router-dom'
+
 
 function App() {
 
   return (
-    <>
+    <BrowserRouter>
     <Headers/>
     <Intro/>
     <Skills/>
     <Qualifications/>
     <Contact/>
     <Footer/>
-    </>
+    </BrowserRouter>
   )
 }
 
