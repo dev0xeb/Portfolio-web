@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Intro = () => {
   return (
     <div className="intro-container flex flex-col md:flex-row justify-between items-center mt-[70px] max-w-[1240px] mx-auto px-4 md:px-8">
-      {/* Text Content */}
       <div className="w-full md:w-1/2 text-center md:text-left">
         <div>
           <p className="mt-8 md:mt-14 font-bold text-3xl md:text-[40px] text-blue-900">
@@ -36,7 +35,6 @@ const Intro = () => {
         </div>
       </div>
 
-      {/* Image */}
       <div className="mt-8 md:mt-0">
         <img
           src={dp}

@@ -12,15 +12,12 @@ const Contact = () => {
       id="contact"
       className="flex flex-col justify-center items-center mt-[120px] max-w-[1240px] mx-auto px-4"
     >
-      {/* Heading */}
       <p className="text-3xl md:text-4xl font-bold text-blue-900">Get in touch</p>
       <p className="text-lg md:text-xl font-semibold text-[#0056D2] mt-3">
         Contact Me
       </p>
 
-      {/* Contact Cards */}
       <div className="flex flex-col md:flex-row justify-center mt-6 w-full space-y-6 md:space-y-0 md:space-x-8">
-        {/* Email Card */}
         <div className="flex flex-col items-center justify-center bg-blue-100 w-full md:w-64 py-6 rounded-lg shadow-md">
           <FontAwesomeIcon
             icon={faEnvelope}
@@ -40,7 +37,6 @@ const Contact = () => {
           </button>
         </div>
 
-        {/* WhatsApp Card */}
         <div className="flex flex-col items-center justify-center bg-blue-100 w-full md:w-64 py-6 rounded-lg shadow-md">
           <FontAwesomeIcon
             icon={faWhatsapp}
@@ -49,7 +45,7 @@ const Contact = () => {
           <p className="pt-3 font-semibold text-lg md:text-[18px]">WhatsApp</p>
           <p className="text-sm md:text-base">+2347026612575</p>
           <button className="pt-3 text-sm md:text-[13px] hover:underline">
-            <a href="https://wa.me/07026612575">
+            <a href="https://wa.me/+2347026612575">
               Message me{" "}
               <FontAwesomeIcon
                 icon={faArrowRight}

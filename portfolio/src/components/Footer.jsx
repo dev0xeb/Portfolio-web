@@ -9,7 +9,6 @@ library.add(faLinkedin, faGithub, faCopyright);
 const Footer = () => {
   return (
     <div className="flex flex-col justify-center items-center mt-[120px] w-full bg-blue-700 py-8">
-      {/* Social Icons */}
       <div className="flex justify-center space-x-6">
         <a
           href="https://www.linkedin.com/in/clinton-ayoade-45315b238"
@@ -37,7 +36,6 @@ const Footer = () => {
         </a>
       </div>
 
-      {/* Copyright Text */}
       <div className="mt-4 text-center">
         <p className="text-sm md:text-[16px] text-white">
           <FontAwesomeIcon icon={faCopyright} style={{ color: "white" }} />{" "}

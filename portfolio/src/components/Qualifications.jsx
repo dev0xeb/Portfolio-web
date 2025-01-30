@@ -15,7 +15,6 @@ const Qualifications = () => {
       id="qualifications"
       className="flex flex-col justify-center items-center mt-[120px] max-w-[1240px] mx-auto px-4"
     >
-      {/* Heading */}
       <p className="text-3xl md:text-4xl font-bold text-blue-900">
         Qualifications
       </p>
@@ -23,9 +22,7 @@ const Qualifications = () => {
         My personal Journey
       </p>
 
-      {/* Education and Experience Sections */}
       <div className="flex flex-col md:flex-row mt-6 w-full">
-        {/* Education Section */}
         <div className="w-full md:w-1/2 md:pr-4 mb-8 md:mb-0">
           <p className="text-2xl md:text-[24px] font-bold text-blue-900 flex justify-center md:justify-start items-center">
             <FontAwesomeIcon
@@ -81,7 +78,6 @@ const Qualifications = () => {
           </div>
         </div>
 
-        {/* Experience Section */}
         <div className="w-full md:w-1/2 md:pl-4">
           <p className="text-2xl md:text-[24px] font-bold text-blue-900 flex justify-center md:justify-start items-center">
             <FontAwesomeIcon

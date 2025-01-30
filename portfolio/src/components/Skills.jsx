@@ -11,15 +11,12 @@ const Skills = () => {
       id="skills"
       className="flex flex-col justify-center items-center mt-[120px] max-w-[1240px] mx-auto px-4"
     >
-      {/* Heading */}
       <p className="text-3xl md:text-4xl font-bold text-blue-900">Skills</p>
       <p className="text-xl md:text-2xl font-semibold text-[#0056D2] mt-3">
         My Technical Level
       </p>
 
-      {/* Skill Cards */}
       <div className="flex flex-col md:flex-row justify-between mt-10 w-full">
-        {/* Frontend Engineer Card */}
         <div className="bg-blue-100 w-full md:w-72 rounded-lg px-4 py-6 mb-6 md:mb-0 md:mr-4">
           <p className="text-lg md:text-[20px] font-bold text-center">
             Frontend Engineer
@@ -46,7 +43,6 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Backend Engineer Card */}
         <div className="bg-blue-100 w-full md:w-72 rounded-lg px-4 py-6 mb-6 md:mb-0 md:mr-4">
           <p className="text-lg md:text-[20px] font-bold text-center">
             Backend Engineer
@@ -65,7 +61,6 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Technologies Card */}
         <div className="bg-blue-100 w-full md:w-72 rounded-lg px-4 py-6">
           <p className="text-lg md:text-[20px] font-bold text-center">
             Technologies
