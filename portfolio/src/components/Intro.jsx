@@ -10,7 +10,7 @@ const Intro = () => {
           <p className="mt-8 md:mt-14 font-bold text-3xl md:text-[40px] text-blue-900">
             Ayoade Clinton
           </p>
-          <p className="font-semibold text-xl md:text-[25px] text-blue-900">
+          <p className="font-semibold text-xl md:text-[25px] text-blue-900 pt-3">
             Software Engineer
           </p>
         </div>
