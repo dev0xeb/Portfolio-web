@@ -27,7 +27,7 @@ const Intro = () => {
           <button className="px-6 py-2 bg-[#007BFF] hover:bg-[#0056D2] text-white text-base font-medium rounded">
             <a href="#contact">Message</a>
           </button>
-          <Link to="https://drive.google.com/file/d/1gC9WuSwxqAExDTC7uQVMCQF_udOzY_IP/view?usp=sharing">
+          <Link to="https://docs.google.com/document/d/100n6klr03Vl5gc0qxGUWXp0v_0HtdxIgU49XF1T4PuY/edit?usp=drive_link">
             <button className="px-6 py-2 bg-[#007BFF] hover:bg-[#0056D2] text-white text-base font-medium rounded">
               View CV
             </button>
