@@ -51,33 +51,33 @@ const AboutMe = () => {
 
   const timeline = [
     {
+      year: "2025",
+      title: "Full-Stack Engineer - Skills Academy",
+      description: "Leading full-stack development, reducing time-to-market by 25% and bug reports by 40%",
+      type: "career"
+    },
+    {
+      year: "2025",
+      title: "Software Engineer - 5stareducation.co.uk",
+      description: "Optimized legacy Moodle plugin, reducing administrative overhead by 40%",
+      type: "career"
+    },
+    {
       year: "2024",
-      title: "Web3 Innovation Award",
-      description: "3rd Place at SUI Hackfest 2024 for Financial Inclusion DeFi Platform",
+      title: "SUI Hackfest 2024 - 3rd Place Winner",
+      description: "Built financial inclusion DeFi platform serving 10K+ users with $2M+ transactions",
       type: "achievement"
     },
     {
-      year: "2023-2024",
-      title: "Lead Blockchain Engineer",
-      description: "Architected and deployed multiple DeFi protocols handling $50M+ in transactions",
-      type: "career"
-    },
-    {
-      year: "2022-2023",
-      title: "Full-Stack Engineer",
-      description: "Built enterprise fintech solutions serving 200+ businesses with 80% efficiency improvement",
-      type: "career"
-    },
-    {
-      year: "2021-2022",
-      title: "Frontend Specialist",
-      description: "Developed responsive web applications with modern frameworks and exceptional UX",
+      year: "2024-2025",
+      title: "Software Engineer - Semicolon Africa",
+      description: "Developed Walk2Wealth crypto app and backend services with 99.9% uptime",
       type: "career"
     },
     {
       year: "2020",
-      title: "Started Journey",
-      description: "Began professional software development with focus on problem-solving and innovation",
+      title: "Started Development Journey",
+      description: "Began intensive self-directed learning in modern software development",
       type: "milestone"
     }
   ];
