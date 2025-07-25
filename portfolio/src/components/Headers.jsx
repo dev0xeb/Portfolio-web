@@ -76,9 +76,9 @@ const Header = () => {
             <h1 className="text-2xl md:text-3xl font-black text-gradient">
               Clinton
             </h1>
-            <span className="ml-2 px-2 py-1 text-xs bg-primary-green text-bg-dark rounded-full font-medium">
+            {/* <span className="ml-2 px-2 py-1 text-xs bg-primary-green text-bg-dark rounded-full font-medium">
               Web3
-            </span>
+            </span> */}
           </div>
 
           {/* Desktop Navigation */}
