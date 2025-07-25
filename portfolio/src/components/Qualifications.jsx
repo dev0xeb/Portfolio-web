@@ -102,6 +102,20 @@ const Qualifications = () => {
                 May 2024 - Present
               </p>
             </div>
+            <div className="border-l-4 border-blue-900 pl-4 rounded-lg mt-6">
+              <p className="font-bold text-base md:text-[17px]">
+                Software Engineer
+              </p>
+              <p className="font-semibold">Skills Academy</p>
+              <p className="font-light text-sm md:text-[14px]">
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  style={{ color: "blue" }}
+                  className="mr-3"
+                />
+                June 2025 - Present
+              </p>
+            </div>
           </div>
         </div>
       </div>
