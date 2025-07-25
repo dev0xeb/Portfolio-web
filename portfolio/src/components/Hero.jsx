@@ -47,12 +47,12 @@ const Hero = () => {
           {/* Left content */}
           <div className={`flex-1 text-center lg:text-left transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             {/* Greeting */}
-            <div className="mb-6">
+            {/* <div className="mb-6">
               <span className="inline-block px-4 py-2 bg-primary-green/10 text-primary-green rounded-full text-sm font-medium border border-primary-green/20">
                 <FontAwesomeIcon icon={faRocket} className="mr-2" />
                 Building the Future of Web3
               </span>
-            </div>
+            </div> */}
 
             {/* Main headline */}
             <h1 className="hero-title text-white dark:text-white mb-6">
@@ -113,7 +113,7 @@ const Hero = () => {
 
             {/* Tech stack preview */}
             <div className="mt-12 flex flex-wrap gap-3 justify-center lg:justify-start">
-              {['React', 'TypeScript', 'Solidity', 'Sui', 'Node.js', 'Web3.js'].map((tech, index) => (
+              {['React', 'Tailwind CSS','Java', 'Python', 'TypeScript', 'Solidity', 'Sui', 'Node.js', 'Web3.js'].map((tech, index) => (
                 <span 
                   key={index}
                   className="px-3 py-1 text-sm bg-white/10 dark:bg-white/10 text-gray-700 dark:text-gray-200 rounded-full backdrop-blur-sm border border-white/20 dark:border-white/20 hover:bg-primary-green/20 hover:text-white transition-all duration-300"
