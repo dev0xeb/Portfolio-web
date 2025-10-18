@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import ThemeToggle from "./ThemeToggle";
 
 library.add(faBars, faXmark);
 
@@ -14,7 +13,6 @@ const Header = () => {
   const navItems = [
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
     { id: "contact", label: "Contact" },
   ];
@@ -22,9 +20,8 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 50);
+    setIsScrolled(window.scrollY > 30);
     
-    // Update active section based on scroll position
     const sections = navItems.map(item => document.getElementById(item.id));
     const currentSection = sections.find(section => {
       if (!section) return false;
@@ -60,95 +57,93 @@ const Header = () => {
   };
 
   return (
-    <>
-      {/* Theme Toggle */}
-      <ThemeToggle />
-      
-      {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
-          ? "glass-effect shadow-lg" 
+          ? "glass-panel shadow-glass" 
           : "bg-transparent"
-      }`}>
-        <nav className="container flex justify-between items-center h-20" role="navigation" aria-label="Main navigation">
-          {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-2xl md:text-3xl font-black text-gradient">
-              Clinton
-            </h1>
-            {/* <span className="ml-2 px-2 py-1 text-xs bg-primary-green text-bg-dark rounded-full font-medium">
-              Web3
-            </span> */}
-          </div>
-
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center space-x-8" role="menubar">
-            {navItems.map((item) => (
-              <li key={item.id} role="none">
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                  role="menuitem"
-                  aria-current={activeSection === item.id ? "page" : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            aria-label="Toggle navigation"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            className="md:hidden p-2 rounded-lg glass-effect hover:bg-primary-green/20 transition-all duration-300"
-          >
-            <FontAwesomeIcon
-              icon={isMenuOpen ? faXmark : faBars}
-              className="text-xl text-primary-green"
-            />
-          </button>
-        </nav>
-
-        {/* Mobile Navigation */}
-        <div
-          id="mobile-menu"
-          className={`md:hidden glass-effect border-t border-white/10 overflow-hidden transition-all duration-300 ${
-            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
-          role="menu"
-        >
-          <ul className="py-4 space-y-2">
-            {navItems.map((item) => (
-              <li key={item.id} role="none">
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                  className={`block px-6 py-3 text-center font-medium transition-all duration-300 hover:bg-primary-green/20 hover:text-primary-green ${
-                    activeSection === item.id 
-                      ? "text-primary-green bg-primary-green/10" 
-                      : "text-gray-300"
-                  }`}
-                  role="menuitem"
-                  aria-current={activeSection === item.id ? "page" : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+      }`}
+      role="banner"
+    >
+      <nav className="container flex justify-between items-center h-16 md:h-20" role="navigation" aria-label="Main navigation">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <h1 className="text-xl md:text-2xl font-bold gradient-text">
+            CA
+          </h1>
+          <span className="hidden sm:block text-xs text-secondary font-semibold tracking-wider">
+            DEVELOPER
+          </span>
         </div>
-      </header>
-    </>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center space-x-12" role="menubar">
+          {navItems.map((item) => (
+            <li key={item.id} role="none">
+              <button
+                onClick={() => scrollToSection(item.id)}
+                className={`text-sm font-medium transition-all duration-300 relative group ${
+                  activeSection === item.id 
+                    ? 'text-accent-gold' 
+                    : 'text-text-secondary hover:text-accent-gold'
+                }`}
+                role="menuitem"
+                aria-current={activeSection === item.id ? "page" : undefined}
+              >
+                {item.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-accent-gold transition-all duration-300 ${
+                    activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          className="md:hidden p-2 rounded-lg glass-panel hover:bg-accent-gold/10 transition-all duration-300"
+        >
+          <FontAwesomeIcon
+            icon={isMenuOpen ? faXmark : faBars}
+            className="text-lg text-accent-gold"
+          />
+        </button>
+      </nav>
+
+      {/* Mobile Navigation */}
+      <div
+        id="mobile-menu"
+        className={`md:hidden glass-panel border-t border-accent-gold/10 overflow-hidden transition-all duration-300 ${
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+        role="menu"
+      >
+        <ul className="py-4 space-y-2">
+          {navItems.map((item) => (
+            <li key={item.id} role="none">
+              <button
+                onClick={() => scrollToSection(item.id)}
+                className={`w-full px-6 py-3 text-center font-medium transition-all duration-300 ${
+                  activeSection === item.id 
+                    ? 'text-accent-gold bg-accent-gold/10' 
+                    : 'text-text-secondary hover:text-accent-gold hover:bg-accent-gold/5'
+                }`}
+                role="menuitem"
+                aria-current={activeSection === item.id ? "page" : undefined}
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
   );
 };
 

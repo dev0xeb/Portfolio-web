@@ -6,14 +6,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 library.add(faSun, faMoon);
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference or default to system preference
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialTheme = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+    const initialTheme = savedTheme ? savedTheme === 'dark' : true;
     setIsDark(initialTheme);
     document.documentElement.setAttribute('data-theme', initialTheme ? 'dark' : 'light');
   }, []);
@@ -30,14 +27,14 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="theme-toggle group"
+      className="fixed top-6 right-6 z-50 p-3 rounded-lg glass-panel hover:border-accent-gold/40 transition-all duration-300"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <FontAwesomeIcon 
         icon={isDark ? faSun : faMoon} 
         className={`text-lg transition-all duration-300 ${
-          isDark ? 'text-yellow-400 rotate-180' : 'text-slate-600 rotate-0'
+          isDark ? 'text-amber-300' : 'text-accent-gold'
         }`}
       />
     </button>

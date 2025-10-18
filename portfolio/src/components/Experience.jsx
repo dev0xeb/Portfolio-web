@@ -1,19 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faBuilding, 
-  faRocket, 
-  faAward, 
+  faBriefcase, 
+  faTrophy, 
   faGraduationCap,
-  faCode,
-  faUsers,
-  faChartLine,
-  faTrophy,
-  faCalendarAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faBuilding, faRocket, faAward, faGraduationCap, faCode, faUsers, faChartLine, faTrophy, faCalendarAlt);
+library.add(faBriefcase, faTrophy, faGraduationCap);
 
 const Experience = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -24,101 +18,123 @@ const Experience = () => {
     {
       id: 1,
       type: 'career',
-      year: '2024',
-      title: 'Semicolon Africa - Software Engineer',
-      organization: 'Semicolon Africa',
-      location: 'Lagos, Nigeria',
-      duration: 'May 2024 -May 2025',
-      description: 'Developed and scaled backend services using Spring Boot and MongoDB while also Participating in UI/UX discussions. integrated payment analytics.',
+      year: '2025',
+      title: 'Full-Stack Developer',
+      company: 'Marasoft Pay',
+      duration: 'Sept 2025 - Present',
+      location: 'Remote',
+      description: 'Contributing to Marasoft Pay\'s mission of simplifying digital payments for African businesses by enhancing core payment infrastructure and product features.',
       achievements: [
-        'Built Walk2Wealth, a React Native crypto walk-to-earn app, scaling to 100+ concurrent users',
-        'Developed backend services with Spring Boot and MongoDB, achieving 99.9% uptime.',
-        'Integrated payment APIs and analytics tools, improving onboarding and cutting churn by 20%. ',
-        'Contributed to Figma-based responsive UIs, boosting navigation by 25%',
+        'Implemented card payment functionality using Transact Pay API, expanding payment options and improving checkout experience',
+        'Maintained checkout experiences and payment link tools for web and mobile-first users',
+        'Integrated secure payment links and mobile money workflows for inclusive financial access',
+        'Expanded product ERP/automation features including invoicing, inventory, POS, and business analytics tools',
       ],
-      technologies: [ 'React Native', 'Java', 'Node js', 'Spring Boot', 'MongoDB', 'TypeScript', 'Figma', 'Git', 'JUnit', 'Mockito'],
-      icon: faCode,
-      color: 'orange'
+      technologies: ['PHP', 'Moodle API', 'MySQL', 'Git', 'REST APIs', 'Transact Pay API', 'CI/CD']
     },
     {
       id: 2,
-      type: 'achievement',
-      year: '2024',
-      title: 'SUI Hackfest 2024 - 3rd Place Winner',
-      organization: 'SUI Foundation',
-      location: 'Global Virtual Competition',
-      duration: 'October 2024',
-      description: 'Led the development of a financial inclusion DeFi platform that democratizes access to financial services for underserved communities. The platform features micro-lending, savings pools, and yield farming specifically designed for emerging markets.',
+      type: 'career',
+      year: '2025',
+      title: 'Software Engineer',
+      company: 'Skills Academy',
+      duration: 'Jun 2025 - Sep 2025',
+      location: 'Hybrid',
+      description: 'Lead developer on internal and external projects ensuring code quality, performance, and business alignment across multiple product verticals.',
       achievements: [
-        'Designed and implemented smart contracts handling $2M+ in transactions',
-        'Built intuitive user interface serving 10K+ users',
-        'Integrated cross-chain functionality for seamless asset transfers',
-        'Achieved 99.9% uptime and gas-efficient contract optimization'
+        'Delivered full-stack features across web and backend platforms using React, TypeScript, reducing time-to-market by 25%',
+        'Proposed and implemented major website enhancements (UX and SEO-focused) improving user retention and engagement metrics',
+        'Refactored legacy codebases, improving system performance and cutting bug reports by 40%',
+        'Collaborated with stakeholders to define and scope software solutions tailored to user and business requirements',
       ],
-      technologies: ['Solidity', 'Sui Move', 'React', 'Web3.js', 'TypeScript'],
-      icon: faTrophy,
-      color: 'yellow'
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'Next.js', 'Git', 'Prisma ORM', 'Figma']
     },
     {
       id: 3,
       type: 'career',
       year: '2025',
-      duration: 'June 2025 - Present',
-      title: 'Full-Stack Engineer',
-      organization: 'Skills Academy',
-      location: 'Hybrid',
-      description: 'Led development of full-stack features across internal and client platforms using React and Node.js. Enhanced legacy codebases, improved SEO/UX, and reduced bug reports by 40% through strategic refactoring and performance optimization.',
+      title: 'Software Engineer (Contract)',
+      company: '5starcourses',
+      duration: 'Apr 2025 - Jul 2025',
+      location: 'Remote',
+      description: 'Contract role: Audited and optimized legacy PHP-based Moodle plugin, automating workflows and reducing administrative overhead.',
       achievements: [
-        'Lead developer on internal and external projects, ensuring code quality, performance, and business alignment across multiple product verticals. ',
-        'Delivered full-stack features across web and backend platforms using React, TypeScript, reducing time-to-market by 25%',
-        'Proposed and implemented major website enhancements (UX and SEO-focused), which improved user retention and engagement metrics',
-        'Refactored legacy codebases, improving system performance and cutting bug reports by 40%',
-        'Collaborated with stakeholders to define and scope software solutions tailored to user and business requirements.'
+        'Audited and optimized legacy PHP-based Moodle plugin, reducing manual administrative overhead by over 40%',
+        'Enhanced plugin performance and reliability, ensuring seamless automation across course creation and user management',
       ],
-      technologies: [ 'React', 'TypeScript', 'Node js', 'Express', 'Next js', 'Git', 'Prisma ORM', 'Figma' ],
-      icon: faBuilding,
-      color: 'blue'
+      technologies: ['PHP', 'Moodle API', 'MySQL', 'Git']
     },
     {
       id: 4,
       type: 'career',
-      year: '2025',
-      duration: 'April 2025 - July 2025 (Contract)',
+      year: '2024',
       title: 'Software Engineer',
-      organization: '5stareducation.co.uk',
-      location: 'Remote',
-      description: 'Audited and enhanced a legacy Moodle plugin, automating administrative workflows and reducing overhead by over 40%. Boosted system performance and streamlined course creation using PHP and MySQL.',
+      company: 'Semicolon Africa',
+      duration: 'May 2024 - May 2025',
+      location: 'Lagos, Nigeria',
+      description: 'Developed and scaled backend services and mobile applications with focus on user-centric design and performance.',
       achievements: [
-        'Audited and optimized a legacy PHP-based Moodle plugin, reducing manual administrative overhead by over 40%',
-        'Enhanced plugin performance and reliability, ensuring seamless automation across course creation and user management.',
+        'Built Walk2Wealth, a React Native crypto walk-to-earn app, scaling to 100+ concurrent users',
+        'Developed backend services with Spring Boot and MongoDB, achieving 99.9% uptime',
+        'Integrated payment APIs and analytics tools, improving onboarding and cutting churn by 20%',
+        'Designed Figma-based responsive UIs, improving navigation efficiency by 25%',
       ],
-      technologies: ['PHP', 'Moodle API', 'MySQL', 'Git' ],
-      icon: faCode,
-      color: 'purple'
+      technologies: ['React Native', 'Java', 'Node.js', 'Spring Boot', 'MongoDB', 'TypeScript', 'Figma', 'Git', 'JUnit', 'Mockito']
     },
     {
       id: 5,
-      type: 'education',
-      year: '2020',
-      title: 'Started Professional Development Journey',
-      organization: 'Self-Directed Learning',
-      location: 'Nigeria',
-      duration: 'Ongoing',
-      description: 'Began intensive self-directed learning in software development, focusing on problem-solving, modern web technologies, and building real-world applications.',
+      type: 'achievement',
+      year: '2024',
+      title: 'SUI Hackfest 2024',
+      company: 'SUI Foundation',
+      duration: 'Oct 2024',
+      location: 'Global',
+      description: '3rd Place Winner - Led product design and development of a financial inclusion DeFi platform.',
       achievements: [
-        'Completed 20+ online courses and certifications',
-        'Built 10+ personal projects showcasing various technologies',
-        'Contributed to 5+ open-source projects',
-        'Established strong foundation in computer science fundamentals'
+        'Collaborated with 5-member team to design a financial inclusion tool',
+        'Conducted user research to identify pain points in underserved communities',
+        'Created personas and journey maps to prioritize features',
+        'Designed wireframes and prototypes in Figma with focus on accessibility',
+        'Managed daily standups and sprint timelines as Assistant Product Manager',
+        'Presented the pitch to judges, securing 3rd place',
       ],
-      technologies: ['JavaScript', 'Python', 'HTML/CSS', 'Git', 'Linux'],
-      icon: faGraduationCap,
-      color: 'indigo'
+      technologies: ['Figma', 'Product Design', 'User Research', 'Solidity', 'Sui Move', 'React', 'Web3.js']
+    },
+    {
+      id: 6,
+      type: 'education',
+      year: '2024',
+      title: 'Diploma in Business Education',
+      company: 'Henley Business School, UK',
+      duration: '2024 - 2025',
+      location: 'UK',
+      description: 'Advanced business education focusing on strategic insights and business acumen.',
+      achievements: [
+        'Studying business education to complement technical expertise with strategic insights',
+        'Leveraging business acumen for informed software architecture and product decisions',
+      ],
+      technologies: ['Business Strategy', 'Agile Management', 'Product Strategy']
+    },
+    {
+      id: 7,
+      type: 'education',
+      year: '2018',
+      title: 'BA-Theatre Arts',
+      company: 'Osun State University, Nigeria',
+      duration: '2018 - 2022',
+      location: 'Osun State',
+      description: 'Foundation in creative storytelling and empathetic design thinking.',
+      achievements: [
+        'Developed strong foundation in creative storytelling and communication',
+        'Applied theatre arts background to craft empathetic designs and user experiences',
+        'Built collaboration and presentation skills',
+      ],
+      technologies: ['Storytelling', 'Communication', 'Collaboration', 'Design Thinking']
     }
   ];
 
   const filters = [
-    { key: 'all', label: 'All Experience', count: experiences.length },
+    { key: 'all', label: 'All', count: experiences.length },
     { key: 'career', label: 'Career', count: experiences.filter(e => e.type === 'career').length },
     { key: 'achievement', label: 'Achievements', count: experiences.filter(e => e.type === 'achievement').length },
     { key: 'education', label: 'Education', count: experiences.filter(e => e.type === 'education').length },
@@ -128,24 +144,21 @@ const Experience = () => {
     ? experiences 
     : experiences.filter(exp => exp.type === activeFilter);
 
-  const getColorClasses = (color) => {
-    const colorMap = {
-      yellow: 'from-yellow-400 to-yellow-600',
-      green: 'from-green-400 to-green-600',
-      blue: 'from-blue-400 to-blue-600',
-      purple: 'from-purple-400 to-purple-600',
-      indigo: 'from-indigo-400 to-indigo-600',
-      orange: 'from-orange-400 to-orange-600',
-    };
-    return colorMap[color] || 'from-gray-400 to-gray-600';
-  };
-
   const getTypeIcon = (type) => {
     switch(type) {
       case 'achievement': return faTrophy;
-      case 'career': return faBuilding;
+      case 'career': return faBriefcase;
       case 'education': return faGraduationCap;
-      default: return faCalendarAlt;
+      default: return faBriefcase;
+    }
+  };
+
+  const getTypeBadge = (type) => {
+    switch(type) {
+      case 'achievement': return { bg: 'bg-amber-500/10', text: 'text-amber-400', border: 'border-amber-500/30' };
+      case 'career': return { bg: 'bg-accent-gold/10', text: 'text-accent-gold', border: 'border-accent-gold/30' };
+      case 'education': return { bg: 'bg-accent-blue/10', text: 'text-accent-blue', border: 'border-accent-blue/30' };
+      default: return { bg: 'bg-accent-gold/10', text: 'text-accent-gold', border: 'border-accent-gold/30' };
     }
   };
 
@@ -170,34 +183,41 @@ const Experience = () => {
     <section 
       id="experience" 
       ref={sectionRef}
-      className="section-padding bg-gradient-to-br from-white to-gray-50 dark:from-bg-dark dark:to-bg-dark-card"
+      className="relative py-20 md:py-32"
     >
+      {/* Background accent */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent-gold opacity-3 rounded-full blur-3xl -z-10"></div>
+
       <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title text-gradient">Experience Timeline</h2>
-          <p className="section-subtitle max-w-3xl mx-auto">
-            A comprehensive journey through my professional growth, combining formal employment, 
-            entrepreneurial ventures, and notable achievements in software engineering and Web3 innovation.
+        <div className="max-w-3xl mb-16">
+          <p className="badge mb-6">Experience</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-text-primary">
+            Professional timeline and <span className="gradient-text">key achievements</span>
+          </h2>
+          <p className="text-text-secondary text-lg leading-relaxed">
+            A comprehensive journey through my professional growth, combining roles, achievements, 
+            and continuous learning in software engineering and Web3.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap gap-3 mb-16">
           {filters.map((filter) => (
             <button
               key={filter.key}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeFilter === filter.key
-                  ? 'bg-primary-green text-white shadow-glow'
-                  : 'bg-white dark:bg-bg-dark-card border-2 border-gray-200 dark:border-gray-600 text-text-secondary hover:border-primary-green hover:text-primary-green'
+                  ? 'bg-accent-gold/20 text-accent-gold border border-accent-gold/40'
+                  : 'card-modern text-text-secondary hover:text-accent-gold hover:border-accent-gold/30'
               }`}
             >
-              <FontAwesomeIcon icon={getTypeIcon(filter.key === 'all' ? 'career' : filter.key)} className="text-sm" />
               {filter.label}
-              <span className={`px-2 py-1 text-xs rounded-full ${
-                activeFilter === filter.key ? 'bg-white/20' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+              <span className={`px-2 text-xs rounded-full ${
+                activeFilter === filter.key 
+                  ? 'bg-accent-gold/30' 
+                  : 'bg-neutral-700/50'
               }`}>
                 {filter.count}
               </span>
@@ -206,71 +226,54 @@ const Experience = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-green via-accent-cyan to-primary-blue"></div>
-          
-          <div className="space-y-12">
-            {filteredExperiences.map((experience, index) => (
+        <div className="space-y-6">
+          {filteredExperiences.map((exp, index) => {
+            const typeBadge = getTypeBadge(exp.type);
+            return (
               <div
-                key={experience.id}
-                className={`relative transform transition-all duration-700 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                key={exp.id}
+                className={`card-glass rounded-2xl p-8 transform transition-all duration-500 hover:border-accent-gold/40 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
-                style={{ transitionDelay: `${index * 0.2}s` }}
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className={`flex flex-col md:flex-row items-start gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}>
-                  {/* Timeline marker */}
-                  <div className="flex-shrink-0 relative">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${getColorClasses(experience.color)} flex items-center justify-center text-white shadow-lg z-10 relative`}>
-                      <FontAwesomeIcon icon={experience.icon} className="text-lg" />
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                  {/* Left - Year & Icon */}
+                  <div className="flex lg:flex-col items-start lg:items-start gap-4">
+                    <div className={`p-3 rounded-lg flex-shrink-0 ${typeBadge.bg}`}>
+                      <FontAwesomeIcon icon={getTypeIcon(exp.type)} className={`text-lg ${typeBadge.text}`} />
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-green to-accent-cyan opacity-20 animate-ping"></div>
+                    <div>
+                      <div className={`text-2xl font-bold ${typeBadge.text} mb-2`}>{exp.year}</div>
+                      <span className={`badge ${typeBadge.bg} ${typeBadge.border} border`}>
+                        {exp.type.charAt(0).toUpperCase() + exp.type.slice(1)}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className={`flex-1 card max-w-lg ${
-                    index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
-                  }`}>
+                  {/* Right - Content */}
+                  <div className="lg:col-span-3">
                     {/* Header */}
-                    <div className="mb-4">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-xl font-bold text-text-primary leading-tight">
-                          {experience.title}
-                        </h3>
-                        <span className="text-sm font-medium text-primary-green bg-primary-green/10 px-3 py-1 rounded-full">
-                          {experience.year}
-                        </span>
-                      </div>
-                      <div className="text-text-secondary text-sm space-y-1">
-                        <div className="flex items-center gap-2">
-                          <FontAwesomeIcon icon={faBuilding} className="text-xs" />
-                          <span className="font-medium">{experience.organization}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <FontAwesomeIcon icon={faCalendarAlt} className="text-xs" />
-                          <span>{experience.duration} • {experience.location}</span>
-                        </div>
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-bold text-text-primary mb-2">{exp.title}</h3>
+                      <div className="space-y-2 text-text-secondary">
+                        <p className="font-semibold text-accent-gold">{exp.company}</p>
+                        <p className="text-sm">{exp.duration} • {exp.location}</p>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-text-secondary mb-4 leading-relaxed">
-                      {experience.description}
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      {exp.description}
                     </p>
 
                     {/* Achievements */}
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-text-primary mb-2 flex items-center gap-2">
-                        <FontAwesomeIcon icon={faChartLine} className="text-primary-green text-sm" />
-                        Key Achievements
-                      </h4>
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-text-primary mb-3">Key Highlights</h4>
                       <ul className="space-y-2">
-                        {experience.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="text-sm text-text-secondary flex items-start gap-2">
-                            <span className="text-primary-green mt-1">•</span>
+                        {exp.achievements.map((achievement, idx) => (
+                          <li key={idx} className="text-text-secondary flex items-start gap-3">
+                            <span className="text-accent-gold font-bold mt-1">•</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -278,45 +281,40 @@ const Experience = () => {
                     </div>
 
                     {/* Technologies */}
-                    <div>
-                      <h4 className="font-semibold text-text-primary mb-2 flex items-center gap-2">
-                        <FontAwesomeIcon icon={faCode} className="text-accent-cyan text-sm" />
-                        Technologies Used
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {experience.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-primary-green/20 hover:text-primary-green transition-all duration-300"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 text-xs bg-neutral-700/50 text-text-secondary rounded-lg hover:bg-accent-gold/10 hover:text-accent-gold transition-all duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Summary Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-          <div className="text-center card hover:shadow-card-hover transition-all duration-300">
-            <div className="text-2xl font-bold text-primary-green mb-1">2+</div>
+        <div className="divider my-20"></div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center card-modern rounded-xl p-6">
+            <div className="text-3xl font-bold text-accent-gold mb-2">3+</div>
             <div className="text-sm text-text-secondary">Years Experience</div>
           </div>
-          <div className="text-center card hover:shadow-card-hover transition-all duration-300">
-            <div className="text-2xl font-bold text-accent-cyan mb-1">4</div>
-            <div className="text-sm text-text-secondary">Major Roles</div>
+          <div className="text-center card-modern rounded-xl p-6">
+            <div className="text-3xl font-bold text-accent-blue mb-2">7+</div>
+            <div className="text-sm text-text-secondary">Roles & Projects</div>
           </div>
-          <div className="text-center card hover:shadow-card-hover transition-all duration-300">
-            <div className="text-2xl font-bold text-accent-purple mb-1">25+</div>
+          <div className="text-center card-modern rounded-xl p-6">
+            <div className="text-3xl font-bold text-accent-gold mb-2">30+</div>
             <div className="text-sm text-text-secondary">Projects Delivered</div>
           </div>
-          <div className="text-center card hover:shadow-card-hover transition-all duration-300">
-            <div className="text-2xl font-bold text-yellow-500 mb-1">1</div>
+          <div className="text-center card-modern rounded-xl p-6">
+            <div className="text-3xl font-bold text-amber-400 mb-2">1</div>
             <div className="text-sm text-text-secondary">Major Award</div>
           </div>
         </div>

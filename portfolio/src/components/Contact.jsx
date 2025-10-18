@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faEnvelope, 
-  faPhone, 
-  faMapMarkerAlt, 
-  faCalendar,
+import {
+  faEnvelope,
+  faPhone,
   faPaperPlane,
-  faDownload,
-  faExternalLinkAlt
+  faCheck,
+  faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { 
   faLinkedin, 
@@ -18,7 +16,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 library.add(
-  faEnvelope, faPhone, faMapMarkerAlt, faCalendar, faPaperPlane, faDownload, faExternalLinkAlt,
+  faEnvelope, faPhone, faPaperPlane, faCheck, faX,
   faLinkedin, faGithub, faTwitter, faWhatsapp
 );
 
@@ -27,40 +25,29 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    message: '',
-    projectType: 'consultation'
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const contactInfo = [
+  const contactMethods = [
     {
       icon: faEnvelope,
       label: "Email",
       value: "clintonayomide96@gmail.com",
       link: "mailto:clintonayomide96@gmail.com",
-      color: "primary-green"
     },
     {
       icon: faWhatsapp,
       label: "WhatsApp",
       value: "+234 702 661 2575",
       link: "https://wa.me/+2347026612575",
-      color: "green-500"
     },
     {
-      icon: faMapMarkerAlt,
-      label: "Location",
-      value: "Nigeria (Remote Available)",
-      link: null,
-      color: "accent-cyan"
-    },
-    {
-      icon: faCalendar,
-      label: "Schedule Call",
-      value: "Book a meeting",
-      link: "#", // Replace with actual calendar link
-      color: "accent-purple"
+      icon: faPhone,
+      label: "Phone",
+      value: "+234 702 661 2575",
+      link: "tel:+2347026612575",
     }
   ];
 
@@ -69,28 +56,17 @@ const Contact = () => {
       icon: faLinkedin,
       name: "LinkedIn",
       url: "https://linkedin.com/in/clinton-ayomide",
-      color: "blue-600"
     },
     {
       icon: faGithub,
       name: "GitHub",
       url: "https://github.com/clinton-ayomide",
-      color: "gray-800"
     },
     {
       icon: faTwitter,
       name: "Twitter",
       url: "https://twitter.com/clinton_ayomide",
-      color: "blue-400"
     }
-  ];
-
-  const projectTypes = [
-    { value: 'consultation', label: 'Technical Consultation' },
-    { value: 'web3', label: 'Web3/DeFi Development' },
-    { value: 'fullstack', label: 'Full-Stack Development' },
-    { value: 'fintech', label: 'Fintech Solutions' },
-    { value: 'other', label: 'Other' }
   ];
 
   const handleInputChange = (e) => {
@@ -106,16 +82,14 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission - replace with actual form handling
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
       setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
         subject: '',
-        message: '',
-        projectType: 'consultation'
+        message: ''
       });
     } catch (error) {
       setSubmitStatus('error');
@@ -123,153 +97,88 @@ const Contact = () => {
       setIsSubmitting(false);
     }
 
-    // Clear status after 5 seconds
     setTimeout(() => setSubmitStatus(null), 5000);
   };
 
-  const getColorClasses = (color, variant = 'default') => {
-    const colorMap = {
-      'primary-green': {
-        default: 'text-primary-green',
-        bg: 'bg-primary-green',
-        bgLight: 'bg-primary-green/10',
-        border: 'border-primary-green'
-      },
-      'green-500': {
-        default: 'text-green-500',
-        bg: 'bg-green-500',
-        bgLight: 'bg-green-500/10',
-        border: 'border-green-500'
-      },
-      'accent-cyan': {
-        default: 'text-accent-cyan',
-        bg: 'bg-accent-cyan',
-        bgLight: 'bg-accent-cyan/10',
-        border: 'border-accent-cyan'
-      },
-      'accent-purple': {
-        default: 'text-accent-purple',
-        bg: 'bg-accent-purple',
-        bgLight: 'bg-accent-purple/10',
-        border: 'border-accent-purple'
-      },
-      'blue-600': {
-        default: 'text-blue-600',
-        bg: 'bg-blue-600'
-      },
-      'gray-800': {
-        default: 'text-gray-800',
-        bg: 'bg-gray-800'
-      },
-      'blue-400': {
-        default: 'text-blue-400',
-        bg: 'bg-blue-400'
-      }
-    };
-    return colorMap[color]?.[variant] || '';
-  };
-
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-gray-50 to-white dark:from-bg-dark-card dark:to-bg-dark">
+    <section id="contact" className="relative py-20 md:py-32">
+      {/* Background accent */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-blue opacity-3 rounded-full blur-3xl -z-10"></div>
+
       <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title text-gradient">Let's Work Together</h2>
-          <p className="section-subtitle max-w-3xl mx-auto">
-            Ready to bring your Web3 vision to life? Whether you're building the next DeFi protocol, 
-            need fintech expertise, or want to discuss blockchain innovation, I'm here to help.
+        <div className="max-w-3xl mb-20">
+          <p className="badge mb-6">Get In Touch</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-text-primary">
+            Let's <span className="gradient-text">collaborate</span>
+          </h2>
+          <p className="text-text-secondary text-lg leading-relaxed">
+            Whether you're interested in Web3 projects, blockchain development, or want to discuss 
+            innovative ideas, I'd love to hear from you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Contact Cards */}
+          <div className="space-y-8">
+            {/* Contact Methods */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <div
+              {contactMethods.map((method, index) => (
+                <a
                   key={index}
-                  className="card hover:shadow-card-hover transition-all duration-300 group"
+                  href={method.link}
+                  className="card-glass rounded-xl p-6 hover:border-accent-gold/40 transition-all duration-300 block"
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl ${getColorClasses(info.color, 'bgLight')} group-hover:${getColorClasses(info.color, 'bg')} transition-all duration-300`}>
+                    <div className="p-3 bg-accent-gold/10 rounded-lg flex-shrink-0">
                       <FontAwesomeIcon 
-                        icon={info.icon} 
-                        className={`text-lg ${getColorClasses(info.color)} group-hover:text-white transition-all duration-300`}
+                        icon={method.icon} 
+                        className="text-lg text-accent-gold"
                       />
                     </div>
-                    <div className="flex-1">
-                      <p className="font-medium text-text-primary">{info.label}</p>
-                      {info.link ? (
-                        <a 
-                          href={info.link}
-                          className="text-text-secondary hover:text-primary-green transition-colors duration-300 flex items-center gap-2"
-                          target={info.link.startsWith('http') ? '_blank' : '_self'}
-                          rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                        >
-                          {info.value}
-                          <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
-                        </a>
-                      ) : (
-                        <p className="text-text-secondary">{info.value}</p>
-                      )}
+                    <div>
+                      <p className="font-semibold text-text-primary text-sm">{method.label}</p>
+                      <p className="text-text-secondary hover:text-accent-gold transition-colors duration-300">
+                        {method.value}
+                      </p>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
 
             {/* Social Links */}
+            <div className="divider"></div>
             <div>
-              <h3 className="text-xl font-bold text-text-primary mb-6">Connect With Me</h3>
-              <div className="flex gap-4">
+              <h3 className="text-lg font-bold text-text-primary mb-6">Connect</h3>
+              <div className="grid grid-cols-3 gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 rounded-xl ${getColorClasses(social.color, 'bg')} text-white flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300`}
+                    className="p-4 card-glass rounded-xl text-center hover:border-accent-gold/40 hover:bg-accent-gold/5 transition-all duration-300"
                     title={social.name}
                   >
-                    <FontAwesomeIcon icon={social.icon} className="text-lg" />
+                    <FontAwesomeIcon icon={social.icon} className="text-2xl text-accent-gold" />
                   </a>
                 ))}
-              </div>
-            </div>
-
-            {/* Resume Download */}
-            <div className="card bg-gradient-to-r from-primary-green/10 to-primary-blue/10 border border-primary-green/20">
-              <div className="text-center">
-                <FontAwesomeIcon icon={faDownload} className="text-2xl text-primary-green mb-3" />
-                <h3 className="font-bold text-text-primary mb-2">Download My Resume</h3>
-                <p className="text-sm text-text-secondary mb-4">
-                  Get a comprehensive overview of my experience and skills
-                </p>
-                <a 
-                  href="https://docs.google.com/document/d/100n6klr03Vl5gc0qxGUWXp0v_0HtdxIgU49XF1T4PuY/edit?usp=drive_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  <FontAwesomeIcon icon={faDownload} />
-                  Download Resume
-                </a>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <div className="card">
-              <h3 className="text-2xl font-bold text-text-primary mb-6">Send Me a Message</h3>
+          <div className="lg:col-span-2">
+            <div className="card-glass rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-text-primary mb-8">Send Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name and Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
-                      Full Name *
+                    <label htmlFor="name" className="block text-sm font-semibold text-text-primary mb-3">
+                      Full Name
                     </label>
                     <input
                       type="text"
@@ -278,13 +187,13 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent bg-white dark:bg-bg-dark-card text-text-primary transition-all duration-300"
-                      placeholder="John Doe"
+                      className="w-full px-4 py-3 bg-accent-gold/5 border border-accent-gold/20 rounded-lg text-text-primary placeholder-text-tertiary focus:border-accent-gold/40 focus:bg-accent-gold/10 transition-all duration-300"
+                      placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
-                      Email Address *
+                    <label htmlFor="email" className="block text-sm font-semibold text-text-primary mb-3">
+                      Email Address
                     </label>
                     <input
                       type="email"
@@ -293,36 +202,16 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent bg-white dark:bg-bg-dark-card text-text-primary transition-all duration-300"
-                      placeholder="john@example.com"
+                      className="w-full px-4 py-3 bg-accent-gold/5 border border-accent-gold/20 rounded-lg text-text-primary placeholder-text-tertiary focus:border-accent-gold/40 focus:bg-accent-gold/10 transition-all duration-300"
+                      placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
-                {/* Project Type */}
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-text-primary mb-2">
-                    Project Type
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent bg-white dark:bg-bg-dark-card text-text-primary transition-all duration-300"
-                  >
-                    {projectTypes.map((type) => (
-                      <option key={type.value} value={type.value}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
                 {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-text-primary mb-2">
-                    Subject *
+                  <label htmlFor="subject" className="block text-sm font-semibold text-text-primary mb-3">
+                    Subject
                   </label>
                   <input
                     type="text"
@@ -331,15 +220,15 @@ const Contact = () => {
                     required
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent bg-white dark:bg-bg-dark-card text-text-primary transition-all duration-300"
-                    placeholder="Let's discuss your Web3 project"
+                    className="w-full px-4 py-3 bg-accent-gold/5 border border-accent-gold/20 rounded-lg text-text-primary placeholder-text-tertiary focus:border-accent-gold/40 focus:bg-accent-gold/10 transition-all duration-300"
+                    placeholder="What's this about?"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
-                    Message *
+                  <label htmlFor="message" className="block text-sm font-semibold text-text-primary mb-3">
+                    Message
                   </label>
                   <textarea
                     id="message"
@@ -348,61 +237,45 @@ const Contact = () => {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent bg-white dark:bg-bg-dark-card text-text-primary transition-all duration-300 resize-none"
-                    placeholder="Tell me about your project, goals, and how I can help you succeed..."
+                    className="w-full px-4 py-3 bg-accent-gold/5 border border-accent-gold/20 rounded-lg text-text-primary placeholder-text-tertiary focus:border-accent-gold/40 focus:bg-accent-gold/10 transition-all duration-300 resize-none"
+                    placeholder="Tell me about your project or inquiry..."
                   />
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary w-full group disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="loading mr-2"></div>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                        Send Message
-                        <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-                      </>
-                    )}
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full py-4 font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-transparent border-t-charcoal rounded-full animate-spin"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faPaperPlane} />
+                      Send Message
+                    </>
+                  )}
+                </button>
 
                 {/* Status Messages */}
                 {submitStatus && (
-                  <div className={`p-4 rounded-lg text-center ${
-                    submitStatus === 'success' 
-                      ? 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400' 
-                      : 'bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-400'
+                  <div className={`p-4 rounded-lg text-center text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
+                    submitStatus === 'success'
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
                   }`}>
-                    {submitStatus === 'success' 
-                      ? '✅ Message sent successfully! I\'ll get back to you within 24 hours.' 
-                      : '❌ Failed to send message. Please try again or contact me directly.'}
+                    <FontAwesomeIcon icon={submitStatus === 'success' ? faCheck : faX} className="text-lg" />
+                    {submitStatus === 'success'
+                      ? 'Message sent successfully. I\'ll respond within 24 hours.'
+                      : 'Error sending message. Please try again.'}
                   </div>
                 )}
               </form>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 p-6 bg-gradient-to-r from-primary-green/10 to-primary-blue/10 rounded-2xl border border-primary-green/20">
-            <FontAwesomeIcon icon={faCalendar} className="text-2xl text-primary-green" />
-            <div className="text-left">
-              <p className="font-bold text-text-primary">Prefer a quick call?</p>
-              <p className="text-sm text-text-secondary">Schedule a 30-minute consultation to discuss your project</p>
-            </div>
-            <button className="btn-secondary ml-4">
-              Schedule Call
-            </button>
           </div>
         </div>
       </div>

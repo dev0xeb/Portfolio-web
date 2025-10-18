@@ -13,13 +13,12 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Set initial theme based on system preference or saved preference
+    // Set initial theme to dark (portfolio is designed for dark theme)
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
-    
+    const initialTheme = savedTheme ? savedTheme === 'dark' : true;
+
     document.documentElement.setAttribute('data-theme', initialTheme ? 'dark' : 'light');
-    
+
     // Add smooth scrolling behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
