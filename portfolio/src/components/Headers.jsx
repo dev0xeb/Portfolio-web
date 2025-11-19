@@ -56,12 +56,14 @@ const Header = () => {
     const beforeInstallHandler = (e) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
+      console.log('[PWA] beforeinstallprompt event fired', e);
       // Stash the event so it can be triggered later.
       deferredPromptRef.current = e;
       setCanInstall(true);
     };
 
     const appInstalledHandler = () => {
+      console.log('[PWA] appinstalled event fired');
       deferredPromptRef.current = null;
       setCanInstall(false);
     };
@@ -80,13 +82,16 @@ const Header = () => {
     if (!promptEvent) {
       // No install prompt available (likely iOS or Chrome didn't fire the event yet)
       // Show an inline modal with platform-specific instructions and diagnostics
+      console.log('[PWA] beforeinstallprompt NOT available; SW controller=', navigator.serviceWorker && navigator.serviceWorker.controller);
       setShowInstallModal(true);
       return;
     }
 
     // Show the install prompt
+  console.log('[PWA] prompting install');
     promptEvent.prompt();
     const choiceResult = await promptEvent.userChoice;
+  console.log('[PWA] userChoice', choiceResult);
     // Clear the saved prompt since it can't be used again
     deferredPromptRef.current = null;
     setCanInstall(false);
