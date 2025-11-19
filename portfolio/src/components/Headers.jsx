@@ -11,6 +11,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
   const deferredPromptRef = useRef(null);
   const [canInstall, setCanInstall] = useState(false);
+  const [showInstallModal, setShowInstallModal] = useState(false);
 
   const navItems = [
     { id: "about", label: "About" },
@@ -77,14 +78,9 @@ const Header = () => {
   const handleInstallClick = async () => {
     const promptEvent = deferredPromptRef.current;
     if (!promptEvent) {
-      // No install prompt available (likely iOS or already installed)
-      // Provide simple instructions for iOS users
-      const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-      if (isIos) {
-        window.alert('To install the app on iOS: open Safari → Share → Add to Home Screen.');
-      } else {
-        window.alert('The install prompt is not available right now. Try again after reloading the page or use your browser menu to install.');
-      }
+      // No install prompt available (likely iOS or Chrome didn't fire the event yet)
+      // Show an inline modal with platform-specific instructions and diagnostics
+      setShowInstallModal(true);
       return;
     }
 
@@ -214,6 +210,31 @@ const Header = () => {
           </li>
         </ul>
       </div>
+      {/* Install instructions modal (shown when browser doesn't expose beforeinstallprompt) */}
+      {showInstallModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="max-w-md w-full bg-base-100 rounded-lg p-6 glass-panel">
+            <h3 className="text-lg font-semibold mb-2">Install App — Instructions</h3>
+            <p className="text-sm mb-3">The browser didn't expose the automatic install prompt. Use one of the options below to install the app:</p>
+            <ol className="list-decimal list-inside text-sm mb-3 space-y-2">
+              <li>Desktop: Chrome/Edge menu → Install app.</li>
+              <li>Android (Chrome): Menu (⋮) → "Add to Home screen" or "Install app".</li>
+              <li>iOS (Safari): Share → "Add to Home Screen" (some PWA features are limited on iOS).</li>
+            </ol>
+            <details className="mb-3">
+              <summary className="cursor-pointer">Diagnostics (for debugging)</summary>
+              <ul className="text-xs mt-2">
+                <li><strong>User agent:</strong> {navigator.userAgent}</li>
+                <li><strong>Manifest link:</strong> {document.querySelector('link[rel="manifest"]')?.getAttribute('href') || 'not found'}</li>
+                <li><strong>Service Worker controller:</strong> {navigator.serviceWorker && navigator.serviceWorker.controller ? 'registered' : 'no controller'}</li>
+              </ul>
+            </details>
+            <div className="flex justify-end gap-2">
+              <button onClick={() => setShowInstallModal(false)} className="px-4 py-2 rounded-md btn-ghost">Close</button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
